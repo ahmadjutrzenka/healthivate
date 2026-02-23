@@ -10,6 +10,6 @@ healthivate:
 
 NOTES:
 1. Pertama git pull origin main dulu
-2. buat branch masing-masing
+2. buat branch masing-masing (contoh: nama-assignment)
 3. nanti kalau udah push origin branch masing-masing
 4. kalau udah confirm oke sama yang lain baru merge
