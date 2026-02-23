@@ -1,5 +1,12 @@
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+
 .selector-for-some-widget {
-  box-sizing: content-box;
+    box-sizing: content-box;
 }
 
 .title {
@@ -10,8 +17,8 @@
 
 
 h3 {
-    margin-top: 25px; 
-    border-bottom: 5px solid rgb(0, 146, 195); 
+    margin-top: 25px;
+    border-bottom: 5px solid rgb(0, 146, 195);
     padding-bottom: 5px;
     text-align: left;
 }
@@ -40,7 +47,7 @@ h3 {
 
 #container-2 li {
     font-size: 16px;
-    text-align: left; 
+    text-align: left;
     /* margin-left: auto; */
     margin-top: 10px;
 }
