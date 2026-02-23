@@ -4,69 +4,60 @@ let workout_list = document.getElementById("workout-list");
 let container2 = document.getElementById("container-2");
 
 btnBMI.addEventListener("click", function calculateBMI() {
-    console.log("clicked");
-    let heightValue = document.getElementById("height").value / 100;
-    let weightValue = document.getElementById("weight").value;
+  console.log("clicked");
+  let heightValue = document.getElementById("height").value / 100;
+  let weightValue = document.getElementById("weight").value;
 
-    let BMIValue = weightValue / (heightValue * heightValue);
+  let BMIValue = weightValue / (heightValue * heightValue);
 
-    if(!heightValue || !weightValue) return;
+  if (!heightValue || !weightValue) return;
 
-    if(BMIValue < 18.5) {
-        result.innerHTML = `
+  if (BMIValue < 18.5) {
+    result.innerHTML = `
         <strong style="font-size: 30px; display: block; text-align: center"> ${BMIValue.toFixed(2)} </strong>
-        <p style="font-size: 25px;"> Underweight </p>
-        `
-        workout_list.innerHTML = `
-            <li>Push Up - 3 set x 10-15 rep - membangun otot dada dan trisep</li>
-            <li>Squat - 3 set x 12 rep - membentuk otot kaki</li>
-            <li>Plank - 3 set x 30 detik - memperkuat otot inti</li>
-            <li>Lunges - 3 set x 10 per kaki - melatih keseimbangan</li>
-            <li>Yoga Ringan - 20 menit - meningkatkan fleksibilitas</li>
-        `
-        container2.style.display = "";
-        
-    }
-    else if(BMIValue < 25) {
-        result.innerHTML = `
+        <p style="font-size: 25px; font-style: italic"> Underweight </p>
+        `;
+    workout_list.innerHTML = `
+            <li><strong>Push Up</strong> - 3 set x 10-15 rep (Membangun otot dada dan trisep)
+            <li><strong>Lunges</strong> - 3 set x 10 per kaki (Melatih keseimbangan)
+            <li><strong>Plank</strong> - 3 set x 30 detik (Memperkuat otot core/perut)
+        `;
+    container2.style.display = "";
+    // outputBMI.innerHTML = "Underweight"
+    // outputWO1.innerHTML = "- Perbanyak makan buah-buahan"
+  } else if (BMIValue >= 18.5 && BMIValue <= 24.9) {
+    result.innerHTML = `
         <strong style="font-size: 30px; display: block; text-align: center"> ${BMIValue.toFixed(2)} </strong>
-        <p style="font-size: 25px;"> Normal </p>
-        `
-        workout_list.innerHTML = `
-            <li>Jogging - 30-45 menit - menjaga stamina dan kardio</li>
-            <li>Push Up & Pull Up - 4 set x 12 rep - kekuatan upper body</li>
-            <li>HIIT - 20 menit - bakar lemak dan bangun otot</li>
-            <li>Swimming - 30 menit - olahraga seluruh tubuh</li>
-            <li>Stretching - 15 menit - recovery dan fleksibilitas</li>
-        `
-        container2.style.display = "";
-    }
-    else if(BMIValue < 30) {
-        result.innerHTML = `
+        <p style="font-size: 25px; font-style: italic"> Normal </p>
+        `;
+    workout_list.innerHTML = `
+            <li><strong>Jogging</strong> - 30-45 menit (Menjaga stamina dan kardio)
+            <li><strong>Push Up & Pull Up</strong> - 4 set x 12 rep (Melatih kekuatan upper body)
+            <li><strong>HIIT (High-Intensity Interval Training)</strong> - 20 menit (Bakar lemak dan bangun otot)
+        `;
+    container2.style.display = "";
+    // outputBMI.innerHTML = "Normal"
+  } else if (BMIValue >= 25 && BMIValue <= 29.9) {
+    result.innerHTML = `
         <strong style="font-size: 30px; display: block; text-align: center"> ${BMIValue.toFixed(2)} </strong>
-        <p style="font-size: 25px;"> Overweight </p>
-        `
-        workout_list.innerHTML = `
-            <li>Jalan Cepat - 30-45 menit - cara aman bakar kalori</li>
-            <li>Cycling - 30 menit - cardio ramah persendian</li>
-            <li>Bodyweight Squat - 3 set x 12 rep - melatih otot besar kaki</li>
-            <li>Swimming - 30 menit - tanpa beban pada sendi</li>
-            <li>Stretching - 15 menit - mencegah cedera</li>
-        `
-        container2.style.display = "";
-    }
-    else {
-        result.innerHTML = `
+        <p style="font-size: 25px; font-style: italic"> Overweight </p>
+        `;
+    workout_list.innerHTML = `
+            <li><strong>Jalan Cepat</strong> - 30-45 menit (Cara teraman untuk bakar kalori)
+            <li><strong>Bodyweight Squat</strong> - 3 set x 12 rep (Melatih otot besar kaki)
+            <li><strong>Berenang atau Sepeda statis</strong> - 30 menit (Melatih persendian)
+        `;
+    container2.style.display = "";
+    // outputBMI.innerHTML = "Overweight"
+  } else {
+    result.innerHTML = `
         <strong style="font-size: 30px; display: block; text-align: center"> ${BMIValue.toFixed(2)} </strong>
-        <p style="font-size: 25px;"> Obesitas </p>
-        `
-        workout_list.innerHTML = `
-            <li>Jalan Santai - 20 menit - mulai bertahap</li>
-            <li>Chair Exercise - 15 menit - latihan duduk yang aman</li>
-            <li>Stretching Ringan - 10 menit - meningkatkan mobilitas</li>
-            <li>Water Aerobics - 20 menit - ringan untuk persendian</li>
-            <li>Latihan Pernapasan - 10 menit - meningkatkan kapasitas paru</li>
-        `
-    } 
-
-})
+        <p style="font-size: 25px; font-style: italic"> Obesitas </p>
+        `;
+    workout_list.innerHTML = `
+            <li><strong>Jalan Cepat</strong> - 30-45 menit (Langkah teraman untuk bakar kalori)
+            <li><strong>Bodyweight Squat</strong> - 3 set x 12 rep (Melatih otot besar kaki)
+            <li><strong>Berenang atau Sepeda statis</strong> - 30 menit (Menjaga dan melatih kekuatan persendian)
+        `;
+  }
+});
