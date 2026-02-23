@@ -1,5 +1,4 @@
 let btnBMI = document.getElementById("btn");
-// let BMIOutput = document.getElementById("bmi-result");
 let result = document.getElementById("result");
 let workout_list = document.getElementById("workout-list");
 let container2 = document.getElementById("container-2");
@@ -10,7 +9,6 @@ btnBMI.addEventListener("click", function calculateBMI() {
     let weightValue = document.getElementById("weight").value;
 
     let BMIValue = weightValue / (heightValue * heightValue);
-    // BMIOutput.value = BMIValue.toFixed(2);
 
     if(!heightValue || !weightValue) return;
 
@@ -35,9 +33,11 @@ btnBMI.addEventListener("click", function calculateBMI() {
         <p style="font-size: 25px;"> Normal </p>
         `
         workout_list.innerHTML = `
-            <li>Perbanyak konsumsi makan-makanan
-            <li>Kurangin latihan kardio
-            <li>Perbanyak asupan protein
+            <li>Jogging - 30-45 menit - menjaga stamina dan kardio</li>
+            <li>Push Up & Pull Up - 4 set x 12 rep - kekuatan upper body</li>
+            <li>HIIT - 20 menit - bakar lemak dan bangun otot</li>
+            <li>Swimming - 30 menit - olahraga seluruh tubuh</li>
+            <li>Stretching - 15 menit - recovery dan fleksibilitas</li>
         `
         container2.style.display = "";
     }
@@ -47,9 +47,11 @@ btnBMI.addEventListener("click", function calculateBMI() {
         <p style="font-size: 25px;"> Overweight </p>
         `
         workout_list.innerHTML = `
-            <li>Perbanyak konsumsi makan-makanan
-            <li>Kurangin latihan kardio
-            <li>Perbanyak asupan protein
+            <li>Jalan Cepat - 30-45 menit - cara aman bakar kalori</li>
+            <li>Cycling - 30 menit - cardio ramah persendian</li>
+            <li>Bodyweight Squat - 3 set x 12 rep - melatih otot besar kaki</li>
+            <li>Swimming - 30 menit - tanpa beban pada sendi</li>
+            <li>Stretching - 15 menit - mencegah cedera</li>
         `
         container2.style.display = "";
     }
@@ -59,45 +61,12 @@ btnBMI.addEventListener("click", function calculateBMI() {
         <p style="font-size: 25px;"> Obesitas </p>
         `
         workout_list.innerHTML = `
-            <li>Perbanyak konsumsi makan-makanan
-            <li>Kurangin latihan kardio
-            <li>Perbanyak asupan protein
+            <li>Jalan Santai - 20 menit - mulai bertahap</li>
+            <li>Chair Exercise - 15 menit - latihan duduk yang aman</li>
+            <li>Stretching Ringan - 10 menit - meningkatkan mobilitas</li>
+            <li>Water Aerobics - 20 menit - ringan untuk persendian</li>
+            <li>Latihan Pernapasan - 10 menit - meningkatkan kapasitas paru</li>
         `
     } 
 
 })
-
-// function calculateBMI() {
-//     console.log("clicked");
-//     let heightValue = document.getElementById("height").value / 100;
-//     let weightValue = document.getElementById("weight").value;
-
-//     const BMIValue = weightValue / (heightValue * heightValue);
-//     // BMIOutput.value = BMIValue.toFixed(2);
-
-//     if(BMIValue < 18.5) {
-//         result.innerHTML = `
-//         <strong style="font-size: 30px; display: block; text-align: center"> ${BMIValue.toFixed(2)} </strong>
-//         <p style="font-size: 25px;"> Underweight </p>
-//         `
-//         workout_list.innerHTML = `
-//             <li>Perbanyak konsumsi makan-makanan
-//             <li>Kurangin latihan kardio
-//             <li>Perbanyak asupan protein
-//         `
-//         container2.style.display = "";
-//         // outputBMI.innerHTML = "Underweight"
-//         // outputWO1.innerHTML = "- Perbanyak makan buah-buahan"
-//     }
-//     else if(BMIValue >= 18.5 && BMIValue <= 24.9) {
-//         // outputBMI.innerHTML = "Normal"
-//     }
-//     else if(BMIValue >= 25 && BMIValue <= 29.9) {
-//         // outputBMI.innerHTML = "Overweight"
-//     }
-//     else {
-//         // outputBMI.innerHTML = "Obesity"
-//     } 
-// }
-
-// btnBMI.addEventListener('click', calculateBMI);
