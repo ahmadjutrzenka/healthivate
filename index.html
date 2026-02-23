@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="wnameth=device-wnameth, initial-scale=1.0">
+    <title>Healthivate</title>
+    <style>
+        .title {
+            text-align: center;
+            display: block;
+        }
+
+        .container {
+            box-sizing: content-box;
+            width: 700px;
+            height: auto;
+            border-color: black;
+            border-style: solid;
+            border-radius: 5px;
+            /* display: flex; */
+            text-align: center;
+            /* align-content: center; */
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+
+        /* .container button {
+            margin: 20px;
+        } */
+
+        #container-2 p {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        #container-2 li {
+            font-size: 18px;
+            /* color: red; */
+            text-align: left; 
+            margin-left: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 class="title">Healthivate Health Tracker</h1>
+
+    <div class="container">
+        <h3>BMI Tracker</h3>
+
+        <!-- <label for="gender">Gender: </label> <br>
+        <input type="radio" name="gender" value="male"> Male
+        <input type="radio" name="gender" value="female"> Female
+        <br><br> -->
+
+        <label for="height">Height (Cm): </label> <br>
+        <input type="number" id="height" value="180" placeholder="Enter Height in Cm">
+        <br><br>
+
+        <label for="weight">Weight (Kg): </label> <br>
+        <input type="number" id="weight" value="80" placeholder="Enter Weight in Kg">
+        <br><br>
+
+        <!-- <label for="age">Age: </label> <br>
+        <input type="number" id="age" placeholder="Enter Age">
+        <br><br> -->
+
+        <button class="btn" id="btn" style="margin-bottom: 25px; margin-top: 20px;">Calculate BMI</button> <br>
+    </div>
+
+    <div class="container" id="container-2" style="display: none;">
+        <h3>Workout Recommendation</h3>
+        <div id="result"> </div>
+        <ul id="workout-list"></ul>
+    </div>
+
+    <script src="function.js"></script>
+
+
+</body>
+</html>
