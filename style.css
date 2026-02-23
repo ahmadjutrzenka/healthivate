@@ -1,0 +1,46 @@
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+
+.title {
+    text-align: center;
+    display: block;
+}
+
+
+
+h3 {
+    margin-top: 25px; 
+    border-bottom: 5px solid rgb(0, 146, 195); 
+    padding-bottom: 5px;
+    text-align: left;
+}
+
+.container {
+    box-sizing: content-box;
+    width: 700px;
+    height: auto;
+    border-color: black;
+    border-style: solid;
+    border-radius: 5px;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+}
+
+#container-1 label {
+    text-align: left;
+}
+
+#container-2 p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#container-2 li {
+    font-size: 16px;
+    text-align: left; 
+    /* margin-left: auto; */
+    margin-top: 10px;
+}
