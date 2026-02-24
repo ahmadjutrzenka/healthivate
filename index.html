@@ -17,29 +17,33 @@
 <body>
     <h1 class="title">Healthivate Health Tracker</h1>
 
+    <!-- ===== Container BMI Tracker ===== -->
     <div class="container" id="container-1">
         <h3 style="margin-top: 25px;">BMI Tracker</h3>
-        <div style="display: inline-block;  width: 49.65%; text-align: left;">
-            <label for="height"> <b>Height (cm):</b> </label>
-            <input type="number" id="height" placeholder="Enter Height in cm" style="width: 100%;">
+        <div style="display: inline-block; width: 49.65%; text-align: left;">
+            <label class="form-label" for="height"> <b>Height (cm):</b> </label>
+            <input class="form-control form-control-sm" type="number" id="height" placeholder="Enter Height in cm" style="width: 100%;">
         </div>
         <div style="display: inline-block; width: 49.65%; text-align: left;">
-            <label for="weight"> <b>Weight (kg):</b> </label>
-            <input type="number" id="weight" placeholder="Enter Weight in kg" style="width: 100%;">
+            <label class="form-label" for="weight"> <b>Weight (kg):</b> </label>
+            <input class="form-control form-control-sm" type="number" id="weight" placeholder="Enter Weight in kg" style="width: 100%;">
         </div>
 
         <div style="text-align: left;">
-            <button class="btn btn-primary" id="btn" style="margin-bottom: 25px; margin-top: 20px;">Calculate
+            <button class="btn btn-primary" id="btn" style="margin-bottom: 25px; margin-top: 20px; width: 100%;">Calculate
                 BMI</button>
         </div>
     </div>
 
+    <!-- ===== Container Workout Recommendation ===== -->
     <div class="container" id="container-2" style="display: none;">
         <h3 style="margin-top: 25px;">Workout Recommendation</h3>
+        <h4>Your BMI is</h4>
         <div id="result"> </div>
-        <ul id="workout-list"></ul>
+        <ul class="list-group list-group-flush" id="workout-list"></ul>
     </div>
 
+    <!-- ===== Container Workout Planner ===== -->
     <div class="container" id="container-3">
         <h3 style="margin-top: 25px;">Workout Planner</h3>
 
