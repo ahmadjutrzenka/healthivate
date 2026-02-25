@@ -1,6 +1,4 @@
 # healthivate
-healthivate:
-
 - Rama Atha Bahy Musyafa
 - Abi Salihin
 - Ahmad Luthfi Hanif
