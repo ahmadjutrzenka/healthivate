@@ -99,7 +99,11 @@ function editData(id) {
   document.getElementById("workout-duration").value = data.duration;
   document.getElementById("workout-notes").value = data.notes;
   document.getElementById("workout-date").value = data.date;
-  document.getElementById("btn-2").textContent = "Edit Workout";
+  
+  const btn = document.getElementById("btn-2");
+  btn.textContent = "Edit Workout";
+  btn.classList.remove("btn-primary");
+  btn.classList.add("btn-success");
 
   workoutData.name = data.name;
   workoutData.category = data.category;
