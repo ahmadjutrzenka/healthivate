@@ -1,63 +1,111 @@
-let btnBMI = document.getElementById("btn");
-let result = document.getElementById("result");
-let workout_list = document.getElementById("workout-list");
-let container2 = document.getElementById("container-2");
+/** Global variable */
+const keyDataWorkout = "data-workout";
+let plannerForm = document.getElementById("planner-form");
+let workoutData = {
+  name: null,
+  category: null,
+  duration: null,
+  date: "",
+  notes: null,
+};
 
-btnBMI.addEventListener("click", function calculateBMI() {
-  console.log("clicked");
-  let heightValue = document.getElementById("height").value / 100;
-  let weightValue = document.getElementById("weight").value;
+/** get items */
+const dataWorkout = JSON.parse(localStorage.getItem(keyDataWorkout));
 
-  let BMIValue = weightValue / (heightValue * heightValue);
+/** functions */
+function readDataTable() {
+  let list = document.getElementById("workout-body");
 
-  if (!heightValue || !weightValue) return;
-
-  if (BMIValue < 18.5) {
-    result.innerHTML = `
-        <strong style="font-size: 30px; display: block; text-align: center"> ${BMIValue.toFixed(2)} </strong>
-        <p style="font-size: 25px; font-style: italic"> Underweight </p>
-        `;
-    workout_list.innerHTML = `
-            <li><strong>Push Up</strong> - 3 set x 10-15 rep (Membangun otot dada dan trisep)
-            <li><strong>Lunges</strong> - 3 set x 10 per kaki (Melatih keseimbangan)
-            <li><strong>Plank</strong> - 3 set x 30 detik (Memperkuat otot core/perut)
-        `;
-    container2.style.display = "";
-    // outputBMI.innerHTML = "Underweight"
-    // outputWO1.innerHTML = "- Perbanyak makan buah-buahan"
-  } else if (BMIValue >= 18.5 && BMIValue <= 24.9) {
-    result.innerHTML = `
-        <strong style="font-size: 30px; display: block; text-align: center"> ${BMIValue.toFixed(2)} </strong>
-        <p style="font-size: 25px; font-style: italic"> Normal </p>
-        `;
-    workout_list.innerHTML = `
-            <li><strong>Jogging</strong> - 30-45 menit (Menjaga stamina dan kardio)
-            <li><strong>Push Up & Pull Up</strong> - 4 set x 12 rep (Melatih kekuatan upper body)
-            <li><strong>HIIT (High-Intensity Interval Training)</strong> - 20 menit (Bakar lemak dan bangun otot)
-        `;
-    container2.style.display = "";
-    // outputBMI.innerHTML = "Normal"
-  } else if (BMIValue >= 25 && BMIValue <= 29.9) {
-    result.innerHTML = `
-        <strong style="font-size: 30px; display: block; text-align: center"> ${BMIValue.toFixed(2)} </strong>
-        <p style="font-size: 25px; font-style: italic"> Overweight </p>
-        `;
-    workout_list.innerHTML = `
-            <li><strong>Jalan Cepat</strong> - 30-45 menit (Cara teraman untuk bakar kalori)
-            <li><strong>Bodyweight Squat</strong> - 3 set x 12 rep (Melatih otot besar kaki)
-            <li><strong>Berenang atau Sepeda statis</strong> - 30 menit (Melatih persendian)
-        `;
-    container2.style.display = "";
-    // outputBMI.innerHTML = "Overweight"
+  if (dataWorkout === null) {
+    let row = document.createElement("tr");
+    row.innerHTML = `<td colspan="7">Data tidak tersedia</td> `;
+    list.appendChild(row);
   } else {
-    result.innerHTML = `
-        <strong style="font-size: 30px; display: block; text-align: center"> ${BMIValue.toFixed(2)} </strong>
-        <p style="font-size: 25px; font-style: italic"> Obesitas </p>
-        `;
-    workout_list.innerHTML = `
-            <li><strong>Jalan Cepat</strong> - 30-45 menit (Langkah teraman untuk bakar kalori)
-            <li><strong>Bodyweight Squat</strong> - 3 set x 12 rep (Melatih otot besar kaki)
-            <li><strong>Berenang atau Sepeda statis</strong> - 30 menit (Menjaga dan melatih kekuatan persendian)
-        `;
+    dataWorkout.forEach((data, idx) => {
+      let row = document.createElement("tr");
+      row.innerHTML = `<td>${idx + 1}</td>
+                    <td>${data.date ?? "Tanggal kosong"}</td> 
+                    <td>${data.name}</td> 
+                    <td>${data.category ?? "kategiry kosong"}</td>
+                    <td>${data.duration ?? "kategiry kosong"}</td>
+                    <td>${data.notes ?? "catatan kosong"}</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm edit">Edit</button>
+                        <button id="${idx}" class="btn btn-danger btn-sm delete">Delete</button>
+                    </td>
+                    `;
+
+      //   row.setAttribute("id", idx + 1);
+      list.appendChild(row);
+    });
   }
+}
+
+function storeLocalStorage(key, value) {
+  if (!key || !value) {
+    alert("localstorage error");
+  } else {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+}
+
+function createData(data) {
+  for (const d in data) {
+    if (data[d] === null || !data || data === "") {
+      alert("please fill the form");
+      return;
+    }
+  }
+
+  if (dataWorkout !== null) {
+    let newData = dataWorkout;
+    newData.push(data);
+    storeLocalStorage(keyDataWorkout, newData);
+    window.location.reload();
+  } else {
+    storeLocalStorage(keyDataWorkout, [data]);
+    window.location.reload();
+  }
+}
+
+function deleteData() {}
+/** end functions */
+
+/** Get Element HTML */
+document.getElementById("workout-name").addEventListener("change", (e) => {
+  workoutData.name = e.target.value;
 });
+
+document.getElementById("workout-category").addEventListener("change", (e) => {
+  workoutData.category = e.target.value;
+});
+
+document.getElementById("workout-duration").addEventListener("change", (e) => {
+  workoutData.duration = e.target.value;
+});
+
+document.getElementById("workout-notes").addEventListener("change", (e) => {
+  workoutData.notes = e.target.value;
+});
+
+document.getElementById("workout-date").addEventListener("change", (e) => {
+  workoutData.date = e.target.value;
+});
+
+let tbody = document.getElementById("workout-body");
+let td = tbody.getElementsByTagName("td");
+console.log(td[td.length - 1]);
+
+/** END Get Element HTML */
+
+/** Event Listener */
+plannerForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  createData(workoutData); // fungsi untuk create data
+});
+
+/** End vent Listener */
+
+// pemanggilan fungsi
+readDataTable();

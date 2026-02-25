@@ -51,3 +51,11 @@ h3 {
     /* margin-left: auto; */
     margin-top: 10px;
 }
+
+#container-3 .box-margin {
+    margin-bottom: 15px;
+}
+
+#container-4 th {
+    align: center;
+}
