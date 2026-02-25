@@ -25,9 +25,9 @@ function readData() {
             <td>${perObj.date}</td> 
             <td>${perObj.name}</td> 
             <td>${perObj.category}</td>
-            <td>${perObj.duration}</td>
+            <td class="text-center">${perObj.duration}</td>
             <td>${perObj.notes}</td>
-            <td>
+            <td class="text-center">
                 <button class="btn btn-warning btn-sm edit" onclick="editData(${perObj.id})">Edit</button>
                 <button id="del-btn-${perObj.id}" class="btn btn-danger btn-sm delete" onclick="deleteData(${perObj.id})">Delete</button>
             </td>
@@ -71,7 +71,10 @@ function createData() {
     }
     editIndex = null;
 
-    document.getElementById("btn-2").textContent = "Add Workout";
+    const btn = document.getElementById("btn-2");
+    btn.textContent = "Add Workout";
+    btn.classList.remove("btn-success");
+    btn.classList.add("btn-primary");
 
     workoutName.value = "";
     workoutCategory.value = "";
@@ -136,7 +139,10 @@ function editData(id) {
   document.getElementById("workout-date").value = getData.date;
   document.getElementById("workout-notes").value = getData.notes;
 
-  document.getElementById("btn-2").textContent = "Update Workout";
+  const btn = document.getElementById("btn-2");
+  btn.textContent = "Update Workout";
+  btn.classList.remove("btn-primary");
+  btn.classList.add("btn-success");
 }
 
 readData();
