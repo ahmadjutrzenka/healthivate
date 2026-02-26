@@ -68,7 +68,7 @@ healthivate/
 
 ## ⚙️ *Tech Stack*
 - **JavaScript (vanilla)** - Logic aplikasi dan DOM manipulation
-- **HTML5** - Struktur home page
+- **HTML5** - Struktur homepage
 - **CSS3** - Styling dan responsive design
 
 ## 📲 *User Guide*
