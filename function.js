@@ -104,4 +104,7 @@ btnBMI.addEventListener("click", function calculateBMI() {
             </li>
         `;
     }
+
+    
+    
 });
