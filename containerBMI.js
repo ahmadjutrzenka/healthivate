@@ -5,20 +5,20 @@ let workout_list = document.getElementById("workout-list");
 let container2 = document.getElementById("container-2");
 
 btnBMI.addEventListener("click", function calculateBMI() {
-    console.log("clicked");
-    let heightValue = document.getElementById("height").value / 100;
-    let weightValue = document.getElementById("weight").value;
+  // console.log("clicked");
+  let heightValue = document.getElementById("height").value / 100;
+  let weightValue = document.getElementById("weight").value;
 
-    let BMIValue = weightValue / (heightValue * heightValue);
+  let BMIValue = weightValue / (heightValue * heightValue);
 
-    if (!heightValue || !weightValue) return;
+  if (!heightValue || !weightValue) return;
 
-    if (BMIValue < 18.5) {
-        result.innerHTML = `
+  if (BMIValue < 18.5) {
+    result.innerHTML = `
          <strong style="font-size: 30px; display: block; text-align: center"> ${BMIValue.toFixed(2)} </strong>
         <p class="bg-primary bg-opacity-25 text-primary-emphasis rounded-3 px-3 py-2" style="font-size: 25px; font-style: italic"> Underweight </p>
         `;
-        workout_list.innerHTML = `
+    workout_list.innerHTML = `
             <div class="row g-3 mt-3">
 
                 <div class="col-12 col-md-4">
@@ -55,15 +55,15 @@ btnBMI.addEventListener("click", function calculateBMI() {
                     </div>
             </div>
         `;
-        container2.style.display = "";
-        // outputBMI.innerHTML = "Underweight"
-        // outputWO1.innerHTML = "- Perbanyak makan buah-buahan"
-    } else if (BMIValue >= 18.5 && BMIValue < 25) {
-        result.innerHTML = `
+    container2.style.display = "";
+    // outputBMI.innerHTML = "Underweight"
+    // outputWO1.innerHTML = "- Perbanyak makan buah-buahan"
+  } else if (BMIValue >= 18.5 && BMIValue < 25) {
+    result.innerHTML = `
             <strong style="font-size: 30px; display: block; text-align: center" > ${BMIValue.toFixed(2)} </strong>
                 <p class="bg-success bg-opacity-25 text-success-emphasis rounded-3 px-3 py-2" style="font-size: 25px; font-style: italic"> Normal </p>
         `;
-        workout_list.innerHTML = `
+    workout_list.innerHTML = `
              <div class="row g-3 mt-3">
 
              <div class="col-12 col-md-4">
@@ -101,14 +101,14 @@ btnBMI.addEventListener("click", function calculateBMI() {
                     </div>
             </div>
         `;
-        container2.style.display = "";
-        // outputBMI.innerHTML = "Normal"
-    } else if (BMIValue >= 25 && BMIValue < 30) {
-        result.innerHTML = `
+    container2.style.display = "";
+    // outputBMI.innerHTML = "Normal"
+  } else if (BMIValue >= 25 && BMIValue < 30) {
+    result.innerHTML = `
             <strong style="font-size: 30px; display: block; text-align: center" > ${BMIValue.toFixed(2)} </strong>
                 <p class="bg-warning bg-opacity-25 text-warning-emphasis rounded-3 px-3 py-2" style="font-size: 25px; font-style: italic"> Overweight </p>
         `;
-        workout_list.innerHTML = `
+    workout_list.innerHTML = `
             <div class="row g-3 mt-3">
 
              <div class="col-12 col-md-4">
@@ -146,14 +146,14 @@ btnBMI.addEventListener("click", function calculateBMI() {
                     </div>
             </div>
         `;
-        container2.style.display = "";
-        // outputBMI.innerHTML = "Overweight"
-    } else {
-        result.innerHTML = `
+    container2.style.display = "";
+    // outputBMI.innerHTML = "Overweight"
+  } else {
+    result.innerHTML = `
             <strong style = "font-size: 30px; display: block; text-align: center" > ${BMIValue.toFixed(2)} </strong>
                 <p class="bg-danger bg-opacity-25 text-danger-emphasis rounded-3 px-3 py-2" style="font-size: 25px; font-style: italic"> Obesitas </p>
         `;
-        workout_list.innerHTML = `
+    workout_list.innerHTML = `
             <div class="row g-3 mt-3">
 
              <div class="col-12 col-md-4">
@@ -191,5 +191,5 @@ btnBMI.addEventListener("click", function calculateBMI() {
                     </div>
             </div>
         `;
-    }
+  }
 });
