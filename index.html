@@ -1,135 +1,5 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="wnameth=device-wnameth, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    <title>Healthivate</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <h1 class="title">Healthivate Health Tracker</h1>
-
-    <!-- ===== Container BMI Tracker ===== -->
-    <div class="container" id="container-1">
-      <h3 style="margin-top: 25px">BMI Tracker</h3>
-      <div style="display: inline-block; width: 49.65%; text-align: left">
-        <label class="form-label" for="height"> <b>Height (cm):</b> </label>
-        <input
-          class="form-control form-control-sm"
-          type="number"
-          id="height"
-          placeholder="Enter Height in cm"
-          style="width: 100%"
-        />
-      </div>
-      <div style="display: inline-block; width: 49.65%; text-align: left">
-        <label class="form-label" for="weight"> <b>Weight (kg):</b> </label>
-        <input
-          class="form-control form-control-sm"
-          type="number"
-          id="weight"
-          placeholder="Enter Weight in kg"
-          style="width: 100%"
-        />
-      </div>
-
-      <div style="text-align: left">
-        <button
-          class="btn btn-primary"
-          id="btn"
-          style="margin-bottom: 25px; margin-top: 20px; width: 100%"
-        >
-          Calculate BMI
-        </button>
-      </div>
-    </div>
-
-    <!-- ===== Container Workout Recommendation ===== -->
-    <div class="container" id="container-2" style="display: none">
-      <h3 style="margin-top: 25px">Workout Recommendation</h3>
-      <h4>Your BMI is</h4>
-      <div id="result"></div>
-      <ul class="list-group list-group-flush" id="workout-list"></ul>
-    </div>
-
-    <!-- ===== Container Workout Planner ===== -->
-    <div class="container" id="container-3">
-      <h3 style="margin-top: 25px">Workout Planner</h3>
-    </div>
-
-    <!-- Container Product -->
-    <div class="container" id="container-4">
-        <h3>Rekomendasi Suplemen</h3>
-        <div class="product">
-          <img src="image/Desain tanpa judul.png" alt="Whey Protein" />
-
-          <div class="detail">
-            <h4>Whey Protein Isolate</h4>
-            <p style="margin-left: 10px;">
-              Protein tinggi 25g per serving. Mendukung pemulihan otot setelah
-              latihan.
-            </p>
-            <p class="price" style="margin-left: 10px;">Rp 350.000</p>
-
-            <div class="qty">
-              <button><span>-</span></button>
-              <div><span>1</span></div>
-              <button><span>+</span></button>
-            </div>
-
-            <button class="btnBuy">Buy</button>
-          </div>
-        </div>
-    </div>
-
-    <!-- Keranjang Produk -->
-    <div class="container" id="container-4">
-        <h2>Keranjang</h2>
-            <table>
-                <div>
-                    <tr>
-                        <th>Produk</th>
-                        <th>Harga</th>
-                        <th>Qty</th>
-                        <th>Subtotal</th>
-                        <th>Aksi</th>
-                    </tr>
-                </div>
-                <tbody>
-                    <tr>
-                        <td>Whey Protein Isolate</td>
-                        <td>Rp 350.000</td>
-                        <td>1</td>
-                        <td>Rp 350.000</td>
-                        <td><button class="btn-hapus">Hapus</button></td>
-                    </tr>
-                </tbody>
-                <div>
-                    <tr class="total-row">
-                        <td colspan="3"><strong>Total</strong></td>
-                        <td colspan="2"><strong>Rp 350.000</strong></td>
-                    </tr>
-                <div>
-            </table>
-            <button class="btn-checkout">Checkout</button>
-        </div>
-      </div>
-    </div>
-
-        <!-- Bagian Daftar Workout -->
-      
 
 <head>
   <meta charset="UTF-8" />
@@ -252,8 +122,63 @@
     </div>
   </div>
 
+  <!-- Container Product -->
   <div class="container" id="container-4">
     <h3>Rekomendasi Suplemen</h3>
+    <div class="product">
+      <img src="image/Desain tanpa judul.png" alt="Whey Protein" />
+
+      <div class="detail">
+        <h4>Whey Protein Isolate</h4>
+        <p style="margin-left: 10px;">
+          Protein tinggi 25g per serving. Mendukung pemulihan otot setelah
+          latihan.
+        </p>
+        <p class="price" style="margin-left: 10px;">Rp 350.000</p>
+
+        <div class="qty">
+          <button><span>-</span></button>
+          <div><span>1</span></div>
+          <button><span>+</span></button>
+        </div>
+
+        <button class="btnBuy">Buy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Keranjang Produk -->
+  <div class="container" id="container-4">
+    <h2>Keranjang</h2>
+    <table>
+      <div>
+        <tr>
+          <th>Produk</th>
+          <th>Harga</th>
+          <th>Qty</th>
+          <th>Subtotal</th>
+          <th>Aksi</th>
+        </tr>
+      </div>
+      <tbody>
+        <tr>
+          <td>Whey Protein Isolate</td>
+          <td>Rp 350.000</td>
+          <td>1</td>
+          <td>Rp 350.000</td>
+          <td><button class="btn-hapus">Hapus</button></td>
+        </tr>
+      </tbody>
+      <div>
+        <tr class="total-row">
+          <td colspan="3"><strong>Total</strong></td>
+          <td colspan="2"><strong>Rp 350.000</strong></td>
+        </tr>
+        <div>
+    </table>
+    <button class="btn-checkout">Checkout</button>
+  </div>
+  </div>
   </div>
 
   <!-- <script src="./function.js"></script> -->
@@ -268,15 +193,10 @@
     crossorigin="anonymous"></script>
 </body>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-      integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+  integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+  integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+</body>
+
 </html>
