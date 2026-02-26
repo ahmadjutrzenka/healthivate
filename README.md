@@ -2,7 +2,7 @@
 
 Sebuah website aplikasi monitoring kesehatan dan kebugaran yang membantu user untuk menghitung BMI, mendapatkan rekomendasi plan workout, dan mencatat progres workout harian, serta menawarkan produk penunjang workout dan kesehatan.
 
-## ✨ Fitur Utama
+## ✨ *Fitur Utama*
 
 ### 📊 BMI Calculator
 - Menghitung BMI (Body Mass Index) berdasarkan berat dan tinggi badan
@@ -29,7 +29,7 @@ Sebuah website aplikasi monitoring kesehatan dan kebugaran yang membantu user un
 - **Cart** - Review produk, harga, stok, subtotal, dan hapus item produk
 - **Checkout** - Proses pembelian produk dari keranjang belanja
 
-## 🚀 Quick Start
+## 🚀 *Quick Start*
 
 ### Cara Menjalankan
 
@@ -51,7 +51,7 @@ Sebuah website aplikasi monitoring kesehatan dan kebugaran yang membantu user un
      - Pilih "Open with Live Server"
      - Browser akan membuka `http://localhost:5500`
 
-## 📂 Struktur Project
+## 📂 *Struktur Project*
 ```
 healthivate/
 ├── assets/                     # Assets (icons, logo, dll)
@@ -66,12 +66,12 @@ healthivate/
 └── README.md                   # File ini               
 ```
 
-## ⚙️ Tech Stack
+## ⚙️ *Tech Stack*
 - **JavaScript (vanilla)** - Logic aplikasi dan DOM manipulation
 - **HTML5** - Struktur home page
 - **CSS3** - Styling dan responsive design
 
-## 📲 User Guide
+## 📲 *User Guide*
 
 ### 1. Kalkulasi BMI
 ```
@@ -112,14 +112,14 @@ healthivate/
 | Overweight | 25.0 - 29.9 |
 | Obese | ≥ 30.0 |
 
-## ⚠️ Notes
+## ⚠️ *Notes*
 
 - Website aplikasi ini dibuat menggunakan **Vanilla JavaScript** tanpa framework
 - Data workout log masih bersifat sementara (tersimpan selama browser session aktif)
 - Untuk tahap production, perlu menggunakan backend database untuk penyimpanan data permanen
 - Kalkulasi BMI menggunakan formula standar: 'berat (kg) / tinggi (cm)'
 
-## ⏭️ Pengembangan Selanjutnya
+## ⏭️ *Pengembangan Selanjutnya*
 
 - [ ] Backend API untuk penyimpanan data permanen
 - [ ] Database (MySQL/MongoDB)
