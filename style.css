@@ -1,20 +1,15 @@
 :root {
-  --hacktiv-orange: #f57c00;
-  --hacktiv-blue: #0092c3;
-  --hacktiv-dark: #1f1f1f;
-  --hacktiv-light: #fff4e6;
+  --hacktiv-orange: #F57C00;
+  --hacktiv-blue: #0092C3;
+  --hacktiv-dark: #1F1F1F;
+  --hacktiv-light: #FFF4E6;
 }
 
 body {
   background-color: var(--hacktiv-light);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-optical-sizing: auto;
-  font-weight: weight;
   font-style: normal;
-}
-
-.selector-for-some-widget {
-  box-sizing: content-box;
 }
 
 .title {
@@ -23,6 +18,32 @@ body {
   color: var(--hacktiv-dark);
   font-weight: 800;
   letter-spacing: 1px;
+}
+
+.logo-header {
+  max-width: 270px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 576px) {
+  .logo-header {
+    max-width: 220px;
+  }
 }
 
 h3 {
@@ -36,7 +57,7 @@ h3 {
 .container {
   box-sizing: content-box;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  width: 700px;
+  max-width: 700px;
   height: auto;
   padding: 25px;
   background-color: white;
@@ -64,12 +85,8 @@ h3 {
   margin-top: 10px;
 }
 
-#workout-list li {
-  padding: 10px 12px;
-  margin-bottom: 8px;
-  background-color: #f0f0f0;
-  border-radius: 4px;
-  /* border-left: 3px solid #3498db; */
+#container-3 .box-margin {
+  margin-bottom: 15px;
 }
 
 /* bagian produk suplement */
@@ -77,147 +94,17 @@ h3 {
   padding-bottom: 10px;
 }
 
-.product {
-  display: flex;
-  padding: 10px;
-}
-
-.product img {
-  width: 160px;
-  height: 160px;
-  border-radius: 10px;
-}
-
-.detail {
-  margin-left: 15px;
-  display: flex;
-  flex-direction: column;
-}
-
-.detail p {
-  font-size: 13px;
-  margin-bottom: 9px;
-  margin-top: 4px;
-  padding: 0;
-}
-
-.price {
-  height: 2px;
-  color: rgb(56, 170, 56);
-  font-weight: bold;
-  text-align: left;
-  /* margin-top: 0px; */
-}
-
-.qty {
-  width: 100px;
-  height: 25px;
-  margin: 10px;
-  text-align: left;
-  /* border: 1px solid black; */
-  display: flex;
-}
-
-.qty button {
-  width: 28px;
-  /* height: 25px; */
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  span {
-    font-size: small;
-  }
-}
-
-.qty span {
-  margin: 8px;
-}
-
-.btnBuy {
-  background: #47db4e;
-  color: #f0f0f0;
-  border: none;
-  margin-left: 9px;
-  padding: 6px 7px;
-  border-radius: 4px;
-  align-items: flex-start;
-  justify-content: start;
-  width: 120px;
-  font-size: small;
-}
-
-/* Bagian keranjang produk */
-
-h2 {
-  margin-top: 0;
-  color: #333;
-  margin-top: 25px;
-  border-bottom: 5px solid rgb(0, 146, 195);
-  padding-bottom: 5px;
-  text-align: left;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 15px;
-}
-
-/* th {
-  background-color: #2980b9;
-  color:#f0f0f0;
-  text-align: left;
-  padding: 12px;
-
-} */
-
-td {
-  padding: 12px;
-  color: #555;
-}
-
-.total-row td {
-  border-top: 2px solid #333;
-}
-
-.btn-hapus {
-  background-color: #e74c3c;
-  color: #f0f0f0;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-}
-
-.btn-checkout {
-  width: 100%;
-  /* #d35400 */
-  background-color: #47db4e;
-  color: white;
-  border: none;
-  padding: 12px;
-  margin-top: 15px;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  font-weight: bold;
-}
-#container-3 .box-margin {
-  margin-bottom: 15px;
-}
-
 #container-1::before,
 #container-3::before,
-#container-4::before {
+#container-4::before,
+#container-5::before,
+#container-6::before {
   content: "";
   display: block;
   height: 6px;
-  background: linear-gradient(
-    90deg,
-    var(--hacktiv-orange),
-    var(--hacktiv-blue)
-  );
+  background: linear-gradient(90deg,
+      var(--hacktiv-orange),
+      var(--hacktiv-blue));
   border-radius: 8px 8px 0 0;
   margin: -25px -25px 20px -25px;
 }
@@ -286,4 +173,24 @@ td {
 
 .badge.bg-info {
   background-color: var(--hacktiv-blue) !important;
+}
+
+/* Bagian keranjang produk */
+
+td {
+  padding: 12px;
+  color: #555;
+}
+
+.total-row td {
+  border-top: 2px solid #333;
+
+}
+
+.btn-hapus {
+  background-color: #e74c3c;
+  color: #f0f0f0;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
 }

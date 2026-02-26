@@ -15,7 +15,10 @@
 </head>
 
 <body>
-  <h1 class="title">Healthivate Health Tracker</h1>
+  <div class="text-center my-2">
+    <img src="assets/logo test.png" alt="logo healthivate" class="logo-header">
+    <p class="subtitle mb-2">Workout & Health Tracker</p>
+  </div>
 
   <!-- ===== Container BMI Tracker ===== -->
   <div class="container" id="container-1">
@@ -123,60 +126,102 @@
   </div>
 
   <!-- Container Product -->
-  <div class="container" id="container-4">
+  <div class="container" id="container-5">
     <h3>Rekomendasi Suplemen</h3>
-    <div class="product">
-      <img src="image/Desain tanpa judul.png" alt="Whey Protein" />
 
-      <div class="detail">
-        <h4>Whey Protein Isolate</h4>
-        <p style="margin-left: 10px;">
-          Protein tinggi 25g per serving. Mendukung pemulihan otot setelah
-          latihan.
-        </p>
-        <p class="price" style="margin-left: 10px;">Rp 350.000</p>
+    <div class="card shadow-sm border-0 mt-3">
+      <div class="row g-0 align-items-center">
 
-        <div class="qty">
-          <button onclick="qtyMin()" id="btn-minus">-</button>
-          <div><span id="buy-qty">1</span></div>
-          <button onclick="qtyAdd()" id="btn-plus">+</button>
+        <div class="col-md-4 text-center">
+          <img src="assets/Desain tanpa judul.png" class="img-fluid rounded" alt="Whey Protein">
         </div>
 
-        <button onclick="createCheckoutData()" class="btnBuy" id="btn-buy">Buy</button>
+        <div class="col-md-8 d-flex">
+          <div class="card-body text-start py-3 px-4 d-flex flex-column justify-content-center">
+
+            <h5 class="card-title fw-bold mb-2">
+              Whey Protein Isolate
+            </h5>
+
+            <p class="card-text text-muted small mb-2">
+              Protein tinggi 25g per serving. Mendukung pemulihan otot setelah latihan.
+            </p>
+
+            <p class="fw-bold text-success mb-2">
+              Rp 350.000
+            </p>
+
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <button onclick="qtyMin()" class="btn btn-outline-secondary btn-sm" id="btn-minus">-</button>
+              <div><span id="buy-qty">1</span></div>
+              <button onclick="qtyAdd()" class="btn btn-outline-secondary btn-sm" id="btn-plus">+</button>
+            </div>
+
+            <button onclick="createCheckoutData()" class="btn btn-success align-self-start" id="btn-buy">Buy</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Keranjang Produk -->
-  <div class="container" id="container-4">
-    <h3>Keranjang</h2>
+  <div class="container" id="container-6" style="display: none;">
+    <h3>Keranjang</h3>
     <div class="table-responsive">
-    <table class="table table-striped table-hover align-middle">
-      <thead class="table-primary text-white text-center">
-        <tr>
-          <th>ID</th>
-          <th>Produk</th>
-          <th>Qty</th>
-          <th>Subtotal</th>
-          <th>Aksi</th>
-        </tr>
-      </thead>
-      <tbody id="checkout-body"></tbody>
-    </table>
-    <button onclick="checkoutAllData()" class="btn-checkout">Checkout</button>
-    </div>
-    <div id="checkout-result">
+      <table class="table table-striped table-hover align-middle">
+        <thead class="table-primary text-white text-center">
+          <tr>
+            <th>ID</th>
+            <th>Produk</th>
+            <th>Qty</th>
+            <th>Subtotal</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="checkout-body"></tbody>
+      </table>
+      <button onclick="checkoutAllData()" class="btn btn-primary"
+        style="margin-bottom: 25px; margin-top: 20px; width: 100%">Checkout</button>
     </div>
   </div>
   </div>
   </div>
 
+  <!-- Modal Checkout -->
+  <div class="modal fade" id="checkoutModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center p-3">
+
+        <div class="modal-body">
+
+          <h4 class="text-success fw-bold mb-3">
+            Checkout Berhasil!
+          </h4>
+
+          <p id="modal-product-detail" class="mb-2"></p>
+
+          <p class="fw-bold">
+            Total: <span id="modal-total"></span>
+          </p>
+
+          <p class="text-muted fst-italic small">
+            Terima kasih sudah berbelanja. Selamat berlatih!
+          </p>
+
+          <button class="btn btn-primary px-4 mt-3" data-bs-dismiss="modal">
+            Tutup
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
   <!-- Segmen Script JS -->
   <!-- <script src="./function.js"></script> -->
   <script src="./crudSupplementCheckout.js"></script>
   <script src="./containerBMI.js"></script>
   <script src="./crudPlannerForm.js"></script>
-
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -186,15 +231,9 @@
     crossorigin="anonymous"></script>
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-  integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-  integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
-</body>
-
 </html>
 
-      <!-- <div>
+<!-- <div>
         <tr class="total-row">
           <td colspan="3"><strong>Total</strong></td>
           <td colspan="2"><strong>Rp 350.000</strong></td>

@@ -28,10 +28,13 @@ function readCheckoutData() {
             <td colspan="2"><strong>${totalHarga}</strong></td>
         </td>
     `;
+    document.getElementById('container-6').style.display = ""
   }
 
   let tableBody = document.getElementById("checkout-body");
   tableBody.innerHTML = template;
+
+
 }
 
 function qtyAdd() {
@@ -77,7 +80,12 @@ function createCheckoutData() {
 
 function deleteCheckoutData() {
   checkoutDatabase = [];
+  document.getElementById('container-6').style.display = 'none'
   readCheckoutData();
+}
+
+function formatRupiah(angka) {
+  return "Rp " + angka.toLocaleString("id-ID");
 }
 
 function checkoutAllData() {
@@ -90,13 +98,18 @@ function checkoutAllData() {
     // console.log(totalHarga, totalQty);
 
     /*Otak-atik disini */
-    let result = document.getElementById("checkout-result");
-    result.innerHTML = `
-        ${totalHarga} dan ${totalQty}
-    `;
+    let productDetail = `Whey Protein Isolate x${totalQty} = ${formatRupiah(totalHarga)}`;
+
+    document.getElementById("modal-product-detail").textContent = productDetail;
+    document.getElementById("modal-total").textContent = formatRupiah(totalHarga);
+
+    // Tampilkan modal
+    let modal = new bootstrap.Modal(document.getElementById("checkoutModal"));
+    modal.show();
     /*Otak-atik disini */
 
     checkoutDatabase = [];
+    document.getElementById('container-6').style.display = 'none'
     readCheckoutData();
   }
 }
