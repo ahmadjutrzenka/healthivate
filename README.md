@@ -1,6 +1,6 @@
 # 🏋️ Healthiv8 - Workout and Health Tracker
 
-Sebuah website aplikasi monitoring kesehatan dan kebugaran yang membantu user untuk menghitung BMI, mendapatkan rekomendasi plan workout, dan mencatat progres workout harian, serta menawarkan produk penunjang workout dan kesehatan.
+Healthiv8 atau Healthivate adalah sebuah website aplikasi monitoring kesehatan dan kebugaran yang membantu user untuk menghitung BMI, mendapatkan rekomendasi plan workout, dan mencatat progres workout harian, serta menawarkan produk penunjang workout dan kesehatan.
 
 ## ✨ *Fitur Utama*
 
@@ -55,7 +55,6 @@ Sebuah website aplikasi monitoring kesehatan dan kebugaran yang membantu user un
 ```
 healthivate/
 ├── assets/                     # Assets (icons, logo, dll)
-├── image/                      # Gambar produk & konten
 ├── containerBMI.js             # Logic BMI calculator & rekomendasi
 ├── crudPlannerForm.js          # Logic CRUD workout planner/log
 ├── crudSupplementCheckout.js   # Logic CRUD suplemen & checkout
