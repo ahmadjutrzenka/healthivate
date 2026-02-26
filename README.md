@@ -77,8 +77,8 @@ healthivate/
 ```
 1. Masukkan berat badan (kg)
 2. Masukkan tinggi badan (cm)
-3. Klik tombol hitung
-4. Lihat hasil BMI dan kategorinya
+3. Klik tombol "Calculate BMI"
+4. Lihat hasil BMI beserta kategorinya
 ```
 ### 2. Rekomendasi Workout
 ```
