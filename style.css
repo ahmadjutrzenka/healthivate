@@ -14,7 +14,7 @@ body {
 }
 
 .selector-for-some-widget {
-    box-sizing: content-box;
+  box-sizing: content-box;
 }
 
 .title {
@@ -48,22 +48,163 @@ h3 {
 }
 
 #container-1 label {
-    text-align: left;
+  text-align: left;
 }
 
 #container-2 p {
-    margin: 0;
-    padding: 0;
-    text-align: center;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
 #container-2 li {
-    font-size: 16px;
-    text-align: left;
-    /* margin-left: auto; */
-    margin-top: 10px;
+  font-size: 16px;
+  text-align: left;
+  /* margin-left: auto; */
+  margin-top: 10px;
 }
 
+#workout-list li {
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  /* border-left: 3px solid #3498db; */
+}
+
+/* bagian produk suplement */
+#container-4 {
+  padding-bottom: 10px;
+}
+
+.product {
+  display: flex;
+  padding: 10px;
+}
+
+.product img {
+  width: 160px;
+  height: 160px;
+  border-radius: 10px;
+}
+
+.detail {
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.detail p {
+  font-size: 13px;
+  margin-bottom: 9px;
+  margin-top: 4px;
+  padding: 0;
+}
+
+.price {
+  height: 2px;
+  color: rgb(56, 170, 56);
+  font-weight: bold;
+  text-align: left;
+  /* margin-top: 0px; */
+}
+
+.qty {
+  width: 100px;
+  height: 25px;
+  margin: 10px;
+  text-align: left;
+  /* border: 1px solid black; */
+  display: flex;
+}
+
+.qty button {
+  width: 28px;
+  /* height: 25px; */
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    font-size: small;
+  }
+}
+
+.qty span {
+  margin: 8px;
+}
+
+.btnBuy {
+  background: #47db4e;
+  color:#f0f0f0;
+  border: none;
+  margin-left: 9px;
+  padding: 6px 7px;
+  border-radius: 4px;
+  align-items: flex-start;
+  justify-content: start;
+  width: 120px;
+  font-size: small;
+}
+
+/* Bagian keranjang produk */
+
+h2 {
+  margin-top: 0;
+  color: #333;
+  margin-top: 25px;
+  border-bottom: 5px solid rgb(0, 146, 195);
+  padding-bottom: 5px;
+  text-align: left;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th {
+  background-color: #2980b9;
+  color:#f0f0f0;
+  text-align: left;
+  padding: 12px;
+
+}
+
+td {
+  padding: 12px;
+  color: #555;
+}
+
+.total-row td {
+  border-top: 2px 
+  solid #333;
+  
+}
+
+.btn-hapus {
+  background-color: #e74c3c;
+  color:#f0f0f0;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.btn-checkout {
+  width: 100%;
+  /* #d35400 */
+  background-color: #47db4e; 
+  color: white;
+  border: none;
+  padding: 12px;
+  margin-top: 15px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
 #container-3 .box-margin {
     margin-bottom: 15px;
 }
