@@ -1,110 +1,151 @@
-let btnBMI = document.getElementById("btn");
-let result = document.getElementById("result");
-let workout_list = document.getElementById("workout-list");
-let container2 = document.getElementById("container-2");
+/** Global Variable */
+const keyDataWorkout = "data-workout";
+let plannerForm = document.getElementById("planner-form");
+let workoutData = {
+  name: null,
+  category: null,
+  duration: null,
+  date: null,
+  notes: null,
+};
 
-btnBMI.addEventListener("click", function calculateBMI() {
-    console.log("clicked");
-    let heightValue = document.getElementById("height").value / 100;
-    let weightValue = document.getElementById("weight").value;
+/** Get Items */
+const dataWorkout = JSON.parse(localStorage.getItem(keyDataWorkout));
+let editIndex = null;
 
-    let BMIValue = weightValue / (heightValue * heightValue);
+/** Functions */
+function readDataTable() {
+  let list = document.getElementById("workout-body");
 
-    if (!heightValue || !weightValue) return;
+  if (dataWorkout === null || dataWorkout.length === 0) {
+    let row = document.createElement("tr");
+    row.innerHTML = `<td colspan="7">Data tidak tersedia</td> `;
+    list.appendChild(row);
+  } else {
+    dataWorkout.forEach((data, idx) => {
+      let row = document.createElement("tr");
+      row.innerHTML = `<td>${idx + 1}</td>
+                    <td>${data.date ?? "Tanggal Kosong"}</td> 
+                    <td>${data.name ?? "Nama Kosong"}</td> 
+                    <td>${data.category ?? "Kategori Kosong"}</td>
+                    <td>${data.duration ?? "Durasi Kosong"}</td>
+                    <td>${data.notes ?? "Catatan Kosong"}</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm edit" onclick="editData(${idx})">Edit</button>
+                        <button id="del-btn-${idx}" class="btn btn-danger btn-sm delete" onclick="deleteData(${idx})">Delete</button>
+                    </td>
+                    `;
+      list.appendChild(row);
+    });
+  }
+}
 
-    if (BMIValue < 18.5) {
-        result.innerHTML = `
-        <strong style="font-size: 30px; display: block; text-align: center"> ${BMIValue.toFixed(2)} </strong>
-        <p class="bg-primary bg-opacity-25 text-primary-emphasis rounded-3 px-3 py-2" style="font-size: 25px; font-style: italic"> Underweight </p>
-        `;
-        workout_list.innerHTML = `
-            <li class="list-group-item d-flex justify-content-between align-items-center" style="border-left: 3px solid #406ef8">
-            <span><strong>Push Up</strong> - 3 set x 10-15 rep</span>
-            <span class="badge bg-primary ms-2">Strength</span>
-            </li>
+function storeLocalStorage(key, value) {
+  if (!key || !value) {
+    alert("localstorage error");
+  } else {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+}
 
-            <li class="list-group-item d-flex justify-content-between align-items-center" style="border-left: 3px solid #406ef8">
-            <span><strong>Lunges</strong> - 3 set x 10 per kaki</span>
-            <span class="badge bg-primary ms-2">Strength</span>
-            </li>
-
-            <li class="list-group-item d-flex justify-content-between align-items-center" style="border-left: 3px solid #406ef8">
-            <span><strong>Plank</strong> - 3 set x 30 detik</span>
-            <span class="badge bg-primary ms-2">Strength</span>
-            </li>
-        `;
-        container2.style.display = "";
-        // outputBMI.innerHTML = "Underweight"
-        // outputWO1.innerHTML = "- Perbanyak makan buah-buahan"
-    } else if (BMIValue >= 18.5 && BMIValue <= 24.9) {
-        result.innerHTML = `
-        <strong style="font-size: 30px; display: block; text-align: center"> ${BMIValue.toFixed(2)} </strong>
-        <p class="bg-success bg-opacity-25 text-success-emphasis rounded-3 px-3 py-2" style="font-size: 25px; font-style: italic"> Normal </p>
-        `;
-        workout_list.innerHTML = `
-            <li class="list-group-item d-flex justify-content-between align-items-center" style="border-left: 3px solid #3c8456">
-            <span><strong>Jogging</strong> - 30-45 menit</span>
-            <span class="badge bg-success ms-2">Cardio</span>
-            </li>
-
-            <li class="list-group-item d-flex justify-content-between align-items-center" style="border-left: 3px solid #406ef8">
-            <span><strong>Push Up & Pull Up</strong> - 4 set x 12 rep</span>
-            <span class="badge bg-primary ms-2">Strength</span>
-            </li>
-            
-            <li class="list-group-item d-flex justify-content-between align-items-center" style="border-left: 3px solid #cc4649">
-            <span><strong>HIIT</strong> - 20 menit</span>
-            <span class="badge bg-danger ms-2">HIIT</span>
-            </li>
-        `;
-        container2.style.display = "";
-        // outputBMI.innerHTML = "Normal"
-    } else if (BMIValue >= 25 && BMIValue <= 29.9) {
-        result.innerHTML = `
-        <strong style="font-size: 30px; display: block; text-align: center"> ${BMIValue.toFixed(2)} </strong>
-        <p class="bg-warning bg-opacity-25 text-warning-emphasis rounded-3 px-3 py-2" style="font-size: 25px; font-style: italic"> Overweight </p>
-        `;
-        workout_list.innerHTML = `
-            <li class="list-group-item d-flex justify-content-between align-items-center" style="border-left: 3px solid #3c8456">
-            <span><strong>Jalan Cepat</strong> - 30-45 menit</span>
-            <span class="badge bg-success ms-2">Cardio</span>
-            </li>
-
-            <li class="list-group-item d-flex justify-content-between align-items-center" style="border-left: 3px solid #406ef8">
-            <span><strong>Bodyweight Squat</strong> - 3 set x 12 rep</span>
-            <span class="badge bg-primary ms-2">Strength</span>
-            </li>
-
-            <li class="list-group-item d-flex justify-content-between align-items-center" style="border-left: 3px solid #3c8456">
-            <span><strong>Berenang/Sepeda statis</strong> - 30 menit</span>
-            <span class="badge bg-success ms-2">Cardio</span>
-            </li>
-        `;
-        container2.style.display = "";
-        // outputBMI.innerHTML = "Overweight"
-    } else {
-        result.innerHTML = `
-        <strong style="font-size: 30px; display: block; text-align: center"> ${BMIValue.toFixed(2)} </strong>
-        <p class="bg-danger bg-opacity-25 text-danger-emphasis rounded-3 px-3 py-2" style="font-size: 25px; font-style: italic"> Obesitas </p>
-        `;
-        workout_list.innerHTML = `
-            <li class="list-group-item d-flex justify-content-between align-items-center" style="border-left: 3px solid #3c8456">
-            <span><strong>Jalan Cepat</strong> - 30-45 menit</span>
-            <span class="badge bg-success ms-2">Cardio</span>
-            </li>
-            
-            <li class="list-group-item d-flex justify-content-between align-items-center" style="border-left: 3px solid #406ef8">
-            <span><strong>Bodyweight Squat</strong> - 3 set x 12 rep</span>
-            <span class="badge bg-primary ms-2">Strength</span>
-            </li>
-            
-            <li class="list-group-item d-flex justify-content-between align-items-center" style="border-left: 3px solid #3c8456">
-            <span><strong>Berenang/Sepeda statis</strong> - 30 menit</span>
-            <span class="badge bg-success ms-2">Cardio</span>
-            </li>
-        `;
+function createData(data) {
+  for (const d in data) {
+    if (data[d] === null || !data || data === "") {
+      alert("please fill the form");
+      return;
     }
+  }
 
-    
-    
+  if (dataWorkout !== null) {
+    let newData = dataWorkout;
+    newData.push(data);
+    storeLocalStorage(keyDataWorkout, newData);
+    window.location.reload();
+  } else {
+    storeLocalStorage(keyDataWorkout, [data]);
+    window.location.reload();
+  }
+}
+
+function updateData(data) {
+  let newData = dataWorkout;
+  newData[editIndex] = data;
+  storeLocalStorage(keyDataWorkout, newData);
+  editIndex = null;
+  window.location.reload();
+}
+
+function deleteData(id) {
+  console.log(id);
+  let data = dataWorkout;
+  let newData = [];
+  for (let i = 0; i < data.length; i++) {
+    if (i != id) {
+      newData.push(data[i]);
+    }
+  }
+
+  console.log(newData);
+  storeLocalStorage(keyDataWorkout, newData);
+  window.location.reload();
+}
+
+function editData(id) {
+  editIndex = id;
+  let data = dataWorkout[id];
+
+  document.getElementById("workout-name").value = data.name;
+  document.getElementById("workout-category").value = data.category;
+  document.getElementById("workout-duration").value = data.duration;
+  document.getElementById("workout-notes").value = data.notes;
+  document.getElementById("workout-date").value = data.date;
+  
+  const btn = document.getElementById("btn-2");
+  btn.textContent = "Edit Workout";
+  btn.classList.remove("btn-primary");
+  btn.classList.add("btn-success");
+
+  workoutData.name = data.name;
+  workoutData.category = data.category;
+  workoutData.duration = data.duration;
+  workoutData.notes = data.notes;
+  workoutData.date = data.date;
+}
+
+/** End Functions */
+
+/** Get Element HTML */
+document.getElementById("workout-name").addEventListener("change", (e) => {
+  workoutData.name = e.target.value;
 });
+
+document.getElementById("workout-category").addEventListener("change", (e) => {
+  workoutData.category = e.target.value;
+});
+
+document.getElementById("workout-duration").addEventListener("change", (e) => {
+  workoutData.duration = e.target.value;
+});
+
+document.getElementById("workout-notes").addEventListener("change", (e) => {
+  workoutData.notes = e.target.value;
+});
+
+document.getElementById("workout-date").addEventListener("change", (e) => {
+  workoutData.date = e.target.value;
+});
+/** END Get Element HTML */
+
+/** Event Listener */
+plannerForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  if (editIndex === null) {
+    createData(workoutData); // fungsi untuk create data
+  } else updateData(workoutData);
+});
+
+/** End Event Listener */
+
+// Pemanggilan Fungsi
+readDataTable();
